@@ -1,0 +1,92 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import Image from "next/image";
+
+export default function EquiEliteWebsite() {
+  return (
+    <div className="bg-[#0A1D3A] text-white min-h-screen font-sans">
+      {/* Header */}
+      <header className="p-6 flex justify-between items-center border-b border-[#C5A572]">
+        <div className="flex items-center space-x-4">
+          <Image
+            src="/equi-elite-logo.png" // logo-bestand in public map
+            alt="Equi Elite Logo"
+            width={70}
+            height={70}
+          />
+          <h1 className="text-2xl font-serif tracking-wide text-[#C5A572]">
+            Equi Elite
+          </h1>
+        </div>
+        <nav className="space-x-6 hidden md:flex">
+          <a href="#home" className="hover:text-[#C5A572]">Home</a>
+          <a href="#about" className="hover:text-[#C5A572]">Over</a>
+          <a href="#audience" className="hover:text-[#C5A572]">Voor Wie</a>
+          <a href="#services" className="hover:text-[#C5A572]">Diensten</a>
+          <a href="#results" className="hover:text-[#C5A572]">Resultaten</a>
+          <a href="#blog" className="hover:text-[#C5A572]">Blog</a>
+          <a href="#contact" className="hover:text-[#C5A572]">Contact</a>
+        </nav>
+        <Button className="bg-[#C5A572] text-[#0A1D3A] rounded-2xl px-6">
+          Afspraak maken
+        </Button>
+      </header>
+
+      {/* Hero Section */}
+      <section
+        id="home"
+        className="text-center py-24 bg-cover bg-center relative"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1516637090014-cb1ab0d08fc7')",
+        }}
+      >
+        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="flex justify-center mb-6"
+          >
+            <Image
+              src="/equi-elite-logo.png"
+              alt="Equi Elite Logo"
+              width={140}
+              height={140}
+            />
+          </motion.div>
+          <motion.h2
+            className="text-5xl font-serif mb-6 text-[#C5A572]"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            Excellence in Equine Therapy & Training
+          </motion.h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Meer dan 20 jaar ervaring in fysiotherapie, chiropractie en rijtechnische begeleiding. 
+            Equi Elite helpt jou en je paard naar topprestaties.
+          </p>
+          <Button className="bg-[#C5A572] text-[#0A1D3A] rounded-2xl px-8 py-4 text-lg">
+            Plan een sessie
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-[#0A1D3A] border-t border-[#C5A572] py-10 text-center text-sm">
+        <div className="flex flex-col items-center space-y-4">
+          <Image
+            src="/equi-elite-logo.png"
+            alt="Equi Elite Logo"
+            width={80}
+            height={80}
+          />
+          <p>© {new Date().getFullYear()} Equi Elite – All Rights Reserved</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
