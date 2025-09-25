@@ -1,92 +1,188 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Image from "next/image";
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Equi Elite</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0A1D3A; /* donkerblauw */
+      color: white;
+    }
+    header {
+      background-color: #0A1D3A;
+      border-bottom: 2px solid #C5A572; /* goud */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+    }
+    header img {
+      height: 50px;
+    }
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      color: #C5A572;
+    }
+    .hero {
+      background: url("https://images.unsplash.com/photo-1516637090014-cb1ab0d08fc7") no-repeat center center/cover;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.5);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+    .hero h1 {
+      font-size: 48px;
+      color: #C5A572;
+    }
+    .hero p {
+      font-size: 20px;
+      margin: 20px auto;
+      max-width: 700px;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #C5A572;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+    .card {
+      background: white;
+      color: #0A1D3A;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 15px 0;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    }
+    footer {
+      background-color: #0A1D3A;
+      border-top: 2px solid #C5A572;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+    }
+    .btn {
+      display: inline-block;
+      background: #C5A572;
+      color: #0A1D3A;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: white;
+      color: #0A1D3A;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <img src="logo.png" alt="Equi Elite Logo">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">Over</a>
+      <a href="#audience">Voor Wie</a>
+      <a href="#services">Diensten</a>
+      <a href="#results">Resultaten</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-export default function EquiEliteWebsite() {
-  return (
-    <div className="bg-[#0A1D3A] text-white min-h-screen font-sans">
-      {/* Header */}
-      <header className="p-6 flex justify-between items-center border-b border-[#C5A572]">
-        <div className="flex items-center space-x-4">
-          <Image
-            src="/equi-elite-logo.png" // logo-bestand in public map
-            alt="Equi Elite Logo"
-            width={70}
-            height={70}
-          />
-          <h1 className="text-2xl font-serif tracking-wide text-[#C5A572]">
-            Equi Elite
-          </h1>
-        </div>
-        <nav className="space-x-6 hidden md:flex">
-          <a href="#home" className="hover:text-[#C5A572]">Home</a>
-          <a href="#about" className="hover:text-[#C5A572]">Over</a>
-          <a href="#audience" className="hover:text-[#C5A572]">Voor Wie</a>
-          <a href="#services" className="hover:text-[#C5A572]">Diensten</a>
-          <a href="#results" className="hover:text-[#C5A572]">Resultaten</a>
-          <a href="#blog" className="hover:text-[#C5A572]">Blog</a>
-          <a href="#contact" className="hover:text-[#C5A572]">Contact</a>
-        </nav>
-        <Button className="bg-[#C5A572] text-[#0A1D3A] rounded-2xl px-6">
-          Afspraak maken
-        </Button>
-      </header>
-
-      {/* Hero Section */}
-      <section
-        id="home"
-        className="text-center py-24 bg-cover bg-center relative"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1516637090014-cb1ab0d08fc7')",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/40"></div>
-        <div className="relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="flex justify-center mb-6"
-          >
-            <Image
-              src="/equi-elite-logo.png"
-              alt="Equi Elite Logo"
-              width={140}
-              height={140}
-            />
-          </motion.div>
-          <motion.h2
-            className="text-5xl font-serif mb-6 text-[#C5A572]"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            Excellence in Equine Therapy & Training
-          </motion.h2>
-          <p className="text-lg mb-8 max-w-2xl mx-auto">
-            Meer dan 20 jaar ervaring in fysiotherapie, chiropractie en rijtechnische begeleiding. 
-            Equi Elite helpt jou en je paard naar topprestaties.
-          </p>
-          <Button className="bg-[#C5A572] text-[#0A1D3A] rounded-2xl px-8 py-4 text-lg">
-            Plan een sessie
-          </Button>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#0A1D3A] border-t border-[#C5A572] py-10 text-center text-sm">
-        <div className="flex flex-col items-center space-y-4">
-          <Image
-            src="/equi-elite-logo.png"
-            alt="Equi Elite Logo"
-            width={80}
-            height={80}
-          />
-          <p>© {new Date().getFullYear()} Equi Elite – All Rights Reserved</p>
-        </div>
-      </footer>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Excellence in Equine Therapy & Training</h1>
+      <p>Meer dan 20 jaar ervaring in fysiotherapie, chiropractie en rijtechnische begeleiding. 
+      Equi Elite helpt jou en je paard naar topprestaties.</p>
+      <a href="#contact" class="btn">Plan een sessie</a>
     </div>
-  );
-}
+  </section>
+
+  <!-- Over ons -->
+  <section id="about">
+    <h2>Over Equi Elite</h2>
+    <p>Met meer dan 20 jaar ervaring als dierenfysiotherapeute, chiropractor voor paarden en ORUN-instructrice, 
+    biedt Equi Elite een unieke combinatie van medische kennis en rijtechnische begeleiding. 
+    Wij helpen paarden bij revalidatie, gedragsproblemen en verbeteren de samenwerking tussen ruiter en paard.</p>
+  </section>
+
+  <!-- Voor wie -->
+  <section id="audience">
+    <h2>Voor Wie</h2>
+    <div class="card">
+      <h3>Particuliere Paardeneigenaren</h3>
+      <p>Van recreatie tot topsport: wij zorgen dat jouw paard gezond, soepel en in balans blijft.</p>
+    </div>
+    <div class="card">
+      <h3>Professionele Bedrijven</h3>
+      <p>Maneges, sportstallen en fokkers krijgen gespecialiseerde ondersteuning voor hun paarden en ruiters.</p>
+    </div>
+  </section>
+
+  <!-- Diensten -->
+  <section id="services">
+    <h2>Onze Diensten</h2>
+    <div class="card">
+      <h3>Revalidatie & Therapie</h3>
+      <p>Professionele fysiotherapie en chiropractie voor herstel na blessure en het verbeteren van mobiliteit.</p>
+    </div>
+    <div class="card">
+      <h3>Rijtechnische Begeleiding</h3>
+      <p>Hulp bij rijtechnische uitdagingen en het verbeteren van de harmonie tussen paard en ruiter.</p>
+    </div>
+    <div class="card">
+      <h3>Gedrag & Training</h3>
+      <p>Begeleiding bij gedragsproblemen en op maat gemaakte trainingsmethodes die paardvriendelijk zijn.</p>
+    </div>
+  </section>
+
+  <!-- Resultaten -->
+  <section id="results">
+    <h2>Resultaten & Testimonials</h2>
+    <div class="card">
+      <p><em>“Na de revalidatie bij Equi Elite liep mijn paard weer soepel en zelfverzekerd. Ongelooflijk resultaat!”</em></p>
+      <strong>– Klant A</strong>
+    </div>
+    <div class="card">
+      <p><em>“De rijtechnische begeleiding heeft onze prestaties echt naar een hoger niveau getild.”</em></p>
+      <strong>– Klant B</strong>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Neem contact op voor meer informatie of het inplannen van een afspraak.</p>
+    <p>📧 jouw-email@voorbeeld.com<br>📞 06-12345678</p>
+    <a href="mailto:jouw-email@voorbeeld.com" class="btn">Neem contact op</a>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <img src="logo.png" alt="Equi Elite Logo" style="height:40px;"><br>
+    © <script>document.write(new Date().getFullYear())</script> Equi Elite – All Rights Reserved
+  </footer>
+</body>
+</html>
