@@ -4,41 +4,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Equi Elite</title>
-  <!-- Koppeling naar opmaakbestand -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Favicon (klein icoontje in browser tabblad) -->
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
+
+  <!-- Koppel de CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Header -->
-  <header>
+  <header class="header">
     <img src="logo.png" alt="Equi Elite Logo" class="logo">
-    <h1>Equi Elite</h1>
     <nav>
       <a href="#home">Home</a>
       <a href="#about">Over</a>
-      <a href="#audience">Voor Wie</a>
       <a href="#services">Diensten</a>
       <a href="#results">Resultaten</a>
-      <a href="#blog">Blog</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="home">
-    <h2>Excellence in Equine Therapy & Training</h2>
+  <!-- Hero sectie -->
+  <section id="home" class="hero">
+    <h1>Excellence in Equine Therapy & Training</h1>
+    <p>Meer dan 20 jaar ervaring in fysiotherapie, chiropractie en rijtechnische begeleiding.  
+    Equi Elite helpt jou en je paard naar topprestaties.</p>
+    <a href="#contact" class="button">Plan een sessie</a>
+  </section>
+
+  <!-- Over ons -->
+  <section id="about" class="section">
+    <h2>Over Equi Elite</h2>
     <p>
-      Meer dan 20 jaar ervaring in fysiotherapie, chiropractie en rijtechnische begeleiding. 
-      Equi Elite helpt jou en je paard naar topprestaties.
+      Met meer dan 20 jaar ervaring als dierenfysiotherapeute, chiropractor voor paarden en ORUN instructrice, 
+      biedt Equi Elite een unieke combinatie van medische kennis en rijtechnische begeleiding. 
+      Wij helpen paarden met revalidatie, gedragsproblemen en verbeteren de samenwerking tussen ruiter en paard.
     </p>
-    <button>Plan een sessie</button>
+  </section>
+
+  <!-- Diensten -->
+  <section id="services" class="section">
+    <h2>Onze Diensten</h2>
+    <ul>
+      <li><strong>Revalidatie & Therapie</strong> – Fysiotherapie en chiropractie voor herstel en soepelheid.</li>
+      <li><strong>Rijtechnische Begeleiding</strong> – Harmonieuze samenwerking tussen ruiter en paard.</li>
+      <li><strong>Gedrag & Training</strong> – Begeleiding bij gedragsproblemen en paardvriendelijke training.</li>
+    </ul>
+  </section>
+
+  <!-- Resultaten -->
+  <section id="results" class="section">
+    <h2>Resultaten & Testimonials</h2>
+    <blockquote>“Na de revalidatie bij Equi Elite liep mijn paard weer soepel en zelfverzekerd. Ongelooflijk resultaat!” – Klant A</blockquote>
+    <blockquote>“De rijtechnische begeleiding heeft onze prestaties echt naar een hoger niveau getild.” – Klant B</blockquote>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <p>Neem contact op voor meer informatie of het inplannen van een afspraak.</p>
+    <a href="mailto:info@equi-elite.vet" class="button">Neem contact op</a>
   </section>
 
   <!-- Footer -->
-  <footer>
-    <img src="logo.png" alt="Equi Elite Logo" class="logo-small">
-    <p>© 2025 Equi Elite – All Rights Reserved</p>
+  <footer class="footer">
+    <p>© <span id="year"></span> Equi Elite – All Rights Reserved</p>
   </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
